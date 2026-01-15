@@ -8,6 +8,8 @@ A comprehensive air quality monitor that tracks CO2, particulate matter, VOCs, N
 
 **Product Website**: [https://caqm.io](https://caqm.io)
 
+![Claratech AQM9 Air Quality Monitor](Docs/Claratech-AQM9.png)
+
 ## Features
 
 - Real-time monitoring of multiple air quality parameters
