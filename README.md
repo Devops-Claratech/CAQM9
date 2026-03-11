@@ -6,6 +6,12 @@
 
 A comprehensive air quality monitor that tracks CO2, particulate matter, VOCs, NOx, temperature, humidity, and atmospheric pressure. Built on ESP32 hardware with TASMOTA firmware, featuring an OLED display, RGB LED indicators, and audible pollution alerts.
 
+## 🛠️ Open Hardware Design
+The CAQM9 is 100% open hardware. We believe in your right to repair, modify, and understand the devices in your home.
+
+* **View the Schematics & PCB:** [Claratech AQM9 Mainboard on OSHWLab](https://oshwlab.com/claratech/claratech-aqm9-mainboard)
+* From there, you can view the routing, download the Gerber files, or even push the board directly to JLCPCB for manufacturing.
+
 **Product Website**: [https://caqm.io](https://caqm.io)
 
 ![Claratech AQM9 Air Quality Monitor](Docs/Claratech-AQM9.png)
