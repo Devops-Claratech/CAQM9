@@ -6,12 +6,6 @@
 
 A comprehensive air quality monitor that tracks CO2, particulate matter, VOCs, NOx, temperature, humidity, and atmospheric pressure. Built on ESP32 hardware with TASMOTA firmware, featuring an OLED display, RGB LED indicators, and audible pollution alerts.
 
-## 🛠️ Open Hardware Design
-The CAQM9 is 100% open hardware. We believe in your right to repair, modify, and understand the devices in your home.
-
-* **View the Schematics & PCB:** [Claratech AQM9 Mainboard on OSHWLab](https://oshwlab.com/claratech/claratech-aqm9-mainboard)
-* From there, you can view the routing, download the Gerber files, or even push the board directly to JLCPCB for manufacturing.
-
 **Product Website**: [https://caqm.io](https://caqm.io)
 
 ![Claratech AQM9 Air Quality Monitor](Docs/Claratech-AQM9.png)
@@ -86,6 +80,28 @@ Three RGB LEDs provide at-a-glance air quality status:
 3. Restart the device
 
 The `autoexec.be` file automatically loads the driver on boot.
+
+## Firmware Recovery
+
+If a Tasmota OTA upgrade fails or you need to restore your AQM9 to its original shipping state, the factory firmware is available here:
+
+**[CAQM9 Firmware Binaries (Google Drive)](https://drive.google.com/drive/folders/17RJQBsM249BZxEqUaX-_uqHvYXwHp_WY?usp=sharing)**
+
+The folder contains:
+
+- `CAQM9-Tasmota-15.3.0-Driver-1.92-WiFi-OFF.bin` — the exact firmware the AQM9 ships with (Tasmota 15.3.0 + Driver v1.92, WiFi disabled by default)
+- `Readme.txt` — step-by-step `esptool` flashing instructions for macOS, Windows, and Linux
+
+Quick flash command (replace `<PORT>` with your serial port):
+
+```
+esptool --port <PORT> --baud 460800 \
+        --before default-reset --after hard-reset \
+        write-flash --flash-mode dio --flash-freq 80m --flash-size 4MB \
+        0 CAQM9-Tasmota-15.3.0-Driver-1.92-WiFi-OFF.bin
+```
+
+After flashing, WiFi is off by default. Enable it via **Button 1 (hold)** or **Menu → General → WiFi → WiFi On/Off**.
 
 ## Display Modes
 
@@ -229,4 +245,4 @@ Copyright (C) 2026, Claratech Innovations Pvt. Ltd.
 ## Contact
 
 - **Website**: [https://caqm.io](https://caqm.io)
-- **Email**: info@claratech.cx
+- **Email**: team@claratech.cx
